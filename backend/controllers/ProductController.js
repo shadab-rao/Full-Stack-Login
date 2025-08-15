@@ -23,19 +23,35 @@ const addProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
   try {
-    const userProduct = await product
-      .find({ owner: req.user._id })
-      .sort({ createdAt: -1 });
+    const { search,sort } = req.query;
+    
+    let query = { owner: req.user._id };
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: "i" } },
+        { price: !isNaN(search) ? Number(search) : -1 },
+      ];
+    }
+
+    let sortOption = {};
+    if (sort === "priceAsc") sortOption.price = 1;
+    if (sort === "priceDesc") sortOption.price = -1;
+    if (sort === "nameAsc") sortOption.name = 1;
+    if (sort === "nameDesc") sortOption.name = -1;
+    if (sort === "newest") sortOption.createdAt = -1;
+    if (sort === "oldest") sortOption.createdAt = 1;
+
+    const userProduct = await product.find(query).sort(sortOption).exec();
 
     //   .populate("owner", "name email");  used for populate user data
 
     res.status(200).json({
       status: 1,
       message: "Product list fetched successfully",
-      data: userProduct,
+      results: userProduct,
     });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", success: false });
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 };
 
