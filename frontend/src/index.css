@@ -1,0 +1,120 @@
+/* ===== Base Styles ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Form Container (Login, Signup, Add/Edit Product) ===== */
+.form-container {
+  max-width: 350px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin-top: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Link for switching forms */
+.link {
+  color: blue;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* ===== Product Table ===== */
+.table-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background: #007bff;
+  color: white;
+}
+
+table tr:hover {
+  background: #f1f1f1;
+}
+
+/* Action buttons in product table */
+.action-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-btn.edit {
+  background: #ffc107;
+  color: #000;
+}
+
+.action-btn.edit:hover {
+  background: #e0a800;
+}
+
+.action-btn.delete {
+  background: #dc3545;
+  color: white;
+}
+
+.action-btn.delete:hover {
+  background: #c82333;
+}
+
+/* ===== Add/Edit Product Page ===== */
+.add-product-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
